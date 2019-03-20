@@ -2,10 +2,14 @@ package com.gandan.android.androiddesignpattern;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.gandan.android.androiddesignpattern.builder.BuilderPattern;
 import com.gandan.android.androiddesignpattern.builder.ConstructorPattern;
 import com.gandan.android.androiddesignpattern.builder.JavaBeanPattern;
+import com.gandan.android.androiddesignpattern.singleton.EagerSingletonPattern;
+import com.gandan.android.androiddesignpattern.singleton.HolderSingletonPattern;
+import com.gandan.android.androiddesignpattern.singleton.LazySingletonPattern;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,5 +30,11 @@ public class MainActivity extends AppCompatActivity {
                 .memberGender("Female");
 
         BuilderPattern builderPattern = new BuilderPattern.Builder("Builder", 25).memberHobby("Driving").build();
+        Log.e("Builder", builderPattern.getMemberName()+"");
+
+        //싱글턴 패턴
+        EagerSingletonPattern eagerSingletonPattern = EagerSingletonPattern.getInstance();
+        LazySingletonPattern lazySingletonPattern = LazySingletonPattern.getInstance();
+        HolderSingletonPattern holderSingletonPattern = HolderSingletonPattern.getInstance();
     }
 }

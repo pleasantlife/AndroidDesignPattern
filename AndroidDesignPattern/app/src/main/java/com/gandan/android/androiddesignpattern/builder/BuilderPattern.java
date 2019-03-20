@@ -51,7 +51,23 @@ public class BuilderPattern {
         memberHobby = builder.memberHobby;
     }
 
+    public String getMemberName() {
+        return memberName;
+    }
 
+    public int getMemberAge() {
+        return memberAge;
+    }
 
+    public String getMemberGender() {
+        return memberGender;
+    }
 
+    public String getMemberNationality() {
+        return memberNationality;
+    }
+
+    public String getMemberHobby() {
+        return memberHobby;
+    }
 }
