@@ -7,6 +7,7 @@ import android.util.Log;
 import com.gandan.android.androiddesignpattern.builder.BuilderPattern;
 import com.gandan.android.androiddesignpattern.builder.ConstructorPattern;
 import com.gandan.android.androiddesignpattern.builder.JavaBeanPattern;
+import com.gandan.android.androiddesignpattern.factory.Pizza;
 import com.gandan.android.androiddesignpattern.singleton.EagerSingletonPattern;
 import com.gandan.android.androiddesignpattern.singleton.HolderSingletonPattern;
 import com.gandan.android.androiddesignpattern.singleton.LazySingletonPattern;
@@ -36,5 +37,8 @@ public class MainActivity extends AppCompatActivity {
         EagerSingletonPattern eagerSingletonPattern = EagerSingletonPattern.getInstance();
         LazySingletonPattern lazySingletonPattern = LazySingletonPattern.getInstance();
         HolderSingletonPattern holderSingletonPattern = HolderSingletonPattern.getInstance();
+
+        //팩토리 패턴
+        Pizza.PizzaFactory(Pizza.PizzaType.Seafood).GetPrice();
     }
 }
