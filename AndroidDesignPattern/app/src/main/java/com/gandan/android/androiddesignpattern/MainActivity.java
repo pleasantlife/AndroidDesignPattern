@@ -8,6 +8,9 @@ import com.gandan.android.androiddesignpattern.builder.BuilderPattern;
 import com.gandan.android.androiddesignpattern.builder.ConstructorPattern;
 import com.gandan.android.androiddesignpattern.builder.JavaBeanPattern;
 import com.gandan.android.androiddesignpattern.factory.Pizza;
+import com.gandan.android.androiddesignpattern.observer.AnnualSubscriber;
+import com.gandan.android.androiddesignpattern.observer.EventSubscriber;
+import com.gandan.android.androiddesignpattern.observer.NewsCenter;
 import com.gandan.android.androiddesignpattern.singleton.EagerSingletonPattern;
 import com.gandan.android.androiddesignpattern.singleton.HolderSingletonPattern;
 import com.gandan.android.androiddesignpattern.singleton.LazySingletonPattern;
@@ -39,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
         HolderSingletonPattern holderSingletonPattern = HolderSingletonPattern.getInstance();
 
         //팩토리 패턴
-        Pizza.PizzaFactory(Pizza.PizzaType.Seafood).GetPrice();
+        Pizza.PizzaFactory(Pizza.PizzaType.Seafood).getPrice();
+
+        //옵저버 패턴
+        NewsCenter newsCenter = new NewsCenter();
+        AnnualSubscriber as = new AnnualSubscriber(newsCenter);
+        EventSubscriber es = new EventSubscriber(newsCenter);
+
+        es.withdraw();
     }
 }

@@ -2,7 +2,7 @@ package com.gandan.android.androiddesignpattern.factory;
 
 public abstract class Pizza {
 
-    public abstract int GetPrice();
+    public abstract int getPrice();
 
     public enum PizzaType {
         HamMushroom, Deluxe, Seafood
