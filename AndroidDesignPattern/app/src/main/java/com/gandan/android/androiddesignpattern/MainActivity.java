@@ -7,6 +7,14 @@ import android.util.Log;
 import com.gandan.android.androiddesignpattern.builder.BuilderPattern;
 import com.gandan.android.androiddesignpattern.builder.ConstructorPattern;
 import com.gandan.android.androiddesignpattern.builder.JavaBeanPattern;
+import com.gandan.android.androiddesignpattern.facade.Amplifier;
+import com.gandan.android.androiddesignpattern.facade.DVDPlayer;
+import com.gandan.android.androiddesignpattern.facade.HomeTheaterFacade;
+import com.gandan.android.androiddesignpattern.facade.PopcornPopper;
+import com.gandan.android.androiddesignpattern.facade.Projector;
+import com.gandan.android.androiddesignpattern.facade.Screen;
+import com.gandan.android.androiddesignpattern.facade.TheaterLights;
+import com.gandan.android.androiddesignpattern.facade.Tuner;
 import com.gandan.android.androiddesignpattern.factory.Pizza;
 import com.gandan.android.androiddesignpattern.observer.AnnualSubscriber;
 import com.gandan.android.androiddesignpattern.observer.EventSubscriber;
@@ -50,5 +58,10 @@ public class MainActivity extends AppCompatActivity {
         EventSubscriber es = new EventSubscriber(newsCenter);
 
         es.withdraw();
+
+        //파사드 패턴
+        HomeTheaterFacade homeTheaterFacade = new HomeTheaterFacade(new Amplifier(), new Tuner(),
+                new DVDPlayer(), new Projector(), new Screen(), new TheaterLights(), new PopcornPopper());
+        homeTheaterFacade.watchMovie("극한직업");
     }
 }
