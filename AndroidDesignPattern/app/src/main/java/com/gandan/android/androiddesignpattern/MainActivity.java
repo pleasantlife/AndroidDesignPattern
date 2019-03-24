@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.gandan.android.androiddesignpattern.adapter.CameraAdapterByObject;
+import com.gandan.android.androiddesignpattern.adapter.Connectable;
 import com.gandan.android.androiddesignpattern.builder.BuilderPattern;
 import com.gandan.android.androiddesignpattern.builder.ConstructorPattern;
 import com.gandan.android.androiddesignpattern.builder.JavaBeanPattern;
@@ -63,5 +65,10 @@ public class MainActivity extends AppCompatActivity {
         HomeTheaterFacade homeTheaterFacade = new HomeTheaterFacade(new Amplifier(), new Tuner(),
                 new DVDPlayer(), new Projector(), new Screen(), new TheaterLights(), new PopcornPopper());
         homeTheaterFacade.watchMovie("극한직업");
+
+        //어댑터 패턴
+        Connectable connectable = new CameraAdapterByObject();
+        connectable.connectCameraA();
+        connectable.connectCameraB();
     }
 }
