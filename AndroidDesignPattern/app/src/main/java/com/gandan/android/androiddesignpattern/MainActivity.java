@@ -21,6 +21,7 @@ import com.gandan.android.androiddesignpattern.factory.Pizza;
 import com.gandan.android.androiddesignpattern.observer.AnnualSubscriber;
 import com.gandan.android.androiddesignpattern.observer.EventSubscriber;
 import com.gandan.android.androiddesignpattern.observer.NewsCenter;
+import com.gandan.android.androiddesignpattern.singleton.CustomSingletonPattern;
 import com.gandan.android.androiddesignpattern.singleton.EagerSingletonPattern;
 import com.gandan.android.androiddesignpattern.singleton.HolderSingletonPattern;
 import com.gandan.android.androiddesignpattern.singleton.LazySingletonPattern;
@@ -50,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         EagerSingletonPattern eagerSingletonPattern = EagerSingletonPattern.getInstance();
         LazySingletonPattern lazySingletonPattern = LazySingletonPattern.getInstance();
         HolderSingletonPattern holderSingletonPattern = HolderSingletonPattern.getInstance();
+        CustomSingletonPattern.init(this);
+        CustomSingletonPattern customSingletonPattern = CustomSingletonPattern.getInstance();
+
 
         //팩토리 패턴
         Pizza.PizzaFactory(Pizza.PizzaType.Seafood).getPrice();
