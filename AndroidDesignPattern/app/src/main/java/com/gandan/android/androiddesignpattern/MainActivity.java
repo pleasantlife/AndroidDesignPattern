@@ -21,6 +21,9 @@ import com.gandan.android.androiddesignpattern.factory.Pizza;
 import com.gandan.android.androiddesignpattern.observer.AnnualSubscriber;
 import com.gandan.android.androiddesignpattern.observer.EventSubscriber;
 import com.gandan.android.androiddesignpattern.observer.NewsCenter;
+import com.gandan.android.androiddesignpattern.proxy.IService;
+import com.gandan.android.androiddesignpattern.proxy.Proxy;
+import com.gandan.android.androiddesignpattern.proxy.ProxyService;
 import com.gandan.android.androiddesignpattern.singleton.CustomSingletonPattern;
 import com.gandan.android.androiddesignpattern.singleton.EagerSingletonPattern;
 import com.gandan.android.androiddesignpattern.singleton.HolderSingletonPattern;
@@ -74,5 +77,9 @@ public class MainActivity extends AppCompatActivity {
         Connectable connectable = new CameraAdapterByObject();
         connectable.connectCameraA();
         connectable.connectCameraB();
+
+        //프록시 패턴
+        IService proxy = new Proxy();
+        Log.e("Proxy", proxy.runSomething());
     }
 }
