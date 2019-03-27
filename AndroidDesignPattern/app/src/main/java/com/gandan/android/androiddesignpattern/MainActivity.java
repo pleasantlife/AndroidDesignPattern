@@ -28,6 +28,10 @@ import com.gandan.android.androiddesignpattern.singleton.CustomSingletonPattern;
 import com.gandan.android.androiddesignpattern.singleton.EagerSingletonPattern;
 import com.gandan.android.androiddesignpattern.singleton.HolderSingletonPattern;
 import com.gandan.android.androiddesignpattern.singleton.LazySingletonPattern;
+import com.gandan.android.androiddesignpattern.strategy.Soldier;
+import com.gandan.android.androiddesignpattern.strategy.Strategy;
+import com.gandan.android.androiddesignpattern.strategy.StrategyGrenade;
+import com.gandan.android.androiddesignpattern.strategy.StrategyGun;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -81,5 +85,14 @@ public class MainActivity extends AppCompatActivity {
         //프록시 패턴
         IService proxy = new Proxy();
         Log.e("Proxy", proxy.runSomething());
+
+        //전략(Strategy) 패턴
+        Strategy strategy = null;
+        Soldier army = new Soldier();
+        strategy = new StrategyGun();
+        army.runContext(strategy);
+
+        strategy = new StrategyGrenade();
+        army.runContext(strategy);
     }
 }
