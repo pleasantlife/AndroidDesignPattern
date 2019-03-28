@@ -32,6 +32,7 @@ import com.gandan.android.androiddesignpattern.strategy.Soldier;
 import com.gandan.android.androiddesignpattern.strategy.Strategy;
 import com.gandan.android.androiddesignpattern.strategy.StrategyGrenade;
 import com.gandan.android.androiddesignpattern.strategy.StrategyGun;
+import com.gandan.android.androiddesignpattern.templatecallback.SoldierWithRefactoring;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -94,5 +95,10 @@ public class MainActivity extends AppCompatActivity {
 
         strategy = new StrategyGrenade();
         army.runContext(strategy);
+
+        //탬플릿 콜백 패턴
+        SoldierWithRefactoring airforce = new SoldierWithRefactoring();
+        airforce.runContext("KF-16");
+
     }
 }
