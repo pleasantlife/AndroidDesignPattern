@@ -41,6 +41,46 @@
         }
     }
    ```
+## 2. 구조 패턴
+ ### 1. 구조 패턴이란?
+  - 기존에 생성되어 있는 클래스가 새롭게 구현하고자 하는 클래스와 맞지 않는 경우에 사용하는 패턴
+  - 작은 클래스들을 합성하여 더 큰 클래스 구조를 생성하는 패턴
+ 
+ ### 2. 어댑터 패턴
+  - 서로 다른 두 개의 클래스를 연결하는 어댑터 클래스를 생성하여 사용하는 패턴
+  - 안드로이드에서는 앱의 비즈니스 로직과 아이템 모델에 연결하는 경우에 많이 사용
+  - 대표적인 예시로 리사이클러뷰와 리사이클러뷰 어댑터
+  ```java
+  public class RecyclerAdapter extends RecyclerView.Adapter<Holder> {
+      Context context;
+      List<Model> modelList;
+
+      public RecyclerAdapter(Context context, List<Model> modelList){
+          this.context = context;
+          this.modelList = modelList;
+      }
+
+      @override
+      public Holder onCreateViewHolder(ViewGroup parent, int viewType){
+          View view = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
+          return new Holder(view);
+      }
+
+      @override
+      public void onBindViewHolder(Holder holder, int position){
+          Model model = modelList.get(position);
+          holder.title = model.getTitle();
+          holder.date = model.getDate();
+      }
+
+      @override
+      public int getItemCount(){
+          return modelList.size();
+      }
+
+  }
+  ```  
+
 
 
 ## 3. 참고사이트
