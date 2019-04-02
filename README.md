@@ -79,7 +79,17 @@
       }
 
   }
-  ```  
+  ```
+  ### 3. 파사드 패턴
+  - 다른 인터페이스 세트를 사용하기 쉽게 만드는 인터페이스를 제공  
+  - 코드간 의존성 감소
+  - 대표적인 예시 : Retrofit
+  ```java
+  public interface loadServerData {
+      @GET("/load")
+      void loadData(CallBack<Model> callback);
+  }
+  ```
 
 
 
